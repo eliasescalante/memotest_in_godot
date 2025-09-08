@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var contenedor = $CartaContainer
 var cartas_seleccionadas : Array = []
-var valores_disponibles = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"] # 9 valores = 18 cartas
+var valores_disponibles = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"] # 9 valores = 18 cartas
 var bloqueando_input : bool = false
 
 func _ready():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://btp7av64kuraf"]
+[gd_scene load_steps=39 format=3 uid="uid://btp7av64kuraf"]
 
 [ext_resource type="Texture2D" uid="uid://dmcqlx4vjsris" path="res://src/assets/sprite/carta1_2.png" id="1_b6rm8"]
 [ext_resource type="Script" uid="uid://cssu4chkh1r81" path="res://src/scritps/carta.gd" id="1_qcmrd"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cltu544kkafjj" path="res://src/assets/sprite/carta16.png" id="8_srvv1"]
 [ext_resource type="Texture2D" uid="uid://cgijcl2sm5enu" path="res://src/assets/sprite/carta3.png" id="9_gbts6"]
 [ext_resource type="Texture2D" uid="uid://b62jqbbobg2hw" path="res://src/assets/sprite/carta4.png" id="10_ibu7s"]
+[ext_resource type="Texture2D" uid="uid://bloh28tmhrrdy" path="res://src/assets/sprite/carta_placeholder_2.png" id="10_sbyd1"]
 [ext_resource type="Texture2D" uid="uid://bf7slm3qpno7g" path="res://src/assets/sprite/carta5.png" id="11_ufvk1"]
+[ext_resource type="Texture2D" uid="uid://2lvvbn8fkwef" path="res://src/assets/sprite/carta_placeholder_1.png" id="11_uoxir"]
 [ext_resource type="Texture2D" uid="uid://c1nb0kpw237vs" path="res://src/assets/sprite/carta7.png" id="12_06wck"]
 [ext_resource type="Texture2D" uid="uid://dxn7cwahaohkp" path="res://src/assets/sprite/carta8.png" id="13_n1lkn"]
 [ext_resource type="Texture2D" uid="uid://b26hb2aipy13f" path="res://src/assets/sprite/carta9.png" id="14_xnkrs"]
@@ -48,6 +50,14 @@ region = Rect2(0, 0, 1169, 1654)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yapwy"]
 atlas = ExtResource("8_srvv1")
 region = Rect2(0, 0, 2000, 1654)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds7cd"]
+atlas = ExtResource("10_sbyd1")
+region = Rect2(0, 0, 165, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srvv1"]
+atlas = ExtResource("11_uoxir")
+region = Rect2(0, 0, 261, 421)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8wr4"]
 atlas = ExtResource("1_b6rm8")
@@ -149,6 +159,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ds7cd")
+}],
+"loop": true,
+"name": &"17",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srvv1")
+}],
+"loop": true,
+"name": &"18",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_p8wr4")
 }],
 "loop": true,
@@ -218,19 +244,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22i1q"]
-size = Vector2(34.5, 106.5)
+size = Vector2(42, 72)
 
 [node name="Carta" type="Area2D"]
 script = ExtResource("1_qcmrd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, 3)
-scale = Vector2(0.0649882, 0.163845)
+position = Vector2(-9.53674e-07, -2.86102e-06)
+scale = Vector2(0.104112, 0.105665)
 sprite_frames = SubResource("SpriteFrames_fl7ug")
-animation = &"reverso"
+animation = &"18"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.75, 4.75)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_22i1q")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
