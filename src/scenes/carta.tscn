@@ -253,7 +253,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22i1q"]
-size = Vector2(42, 72)
+size = Vector2(66, 89)
 
 [node name="Carta" type="Area2D"]
 script = ExtResource("1_qcmrd")
@@ -262,10 +262,10 @@ script = ExtResource("1_qcmrd")
 position = Vector2(-9.53674e-07, -2.86102e-06)
 scale = Vector2(0.104112, 0.105665)
 sprite_frames = SubResource("SpriteFrames_fl7ug")
-animation = &"reverso"
+animation = &"5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(-2, -0.5)
 shape = SubResource("RectangleShape2D_22i1q")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
