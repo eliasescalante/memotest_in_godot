@@ -12,13 +12,16 @@ offset_top = -46.0
 offset_right = 1361.0
 offset_bottom = 678.0
 mouse_filter = 2
+color = Color(0.0295066, 0.0295066, 0.0295066, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.298039)
-position = Vector2(633.519, 415.773)
+position = Vector2(580, 318)
 rotation = 1.56789
-scale = Vector2(0.350518, 0.750385)
+scale = Vector2(0.315908, 0.886937)
 texture = ExtResource("2_kbpni")
 
 [node name="CartaContainer" type="Node2D" parent="."]
-position = Vector2(202, 57)
+position = Vector2(179, 114)
+
+[node name="Timer" type="Timer" parent="."]

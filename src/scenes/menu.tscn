@@ -27,25 +27,25 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 script = ExtResource("1_h7v81")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576.5, 327.5)
-scale = Vector2(0.679105, 0.700617)
+position = Vector2(616, 351)
+scale = Vector2(0.724455, 0.748971)
 texture = ExtResource("1_2521n")
 
 [node name="start" type="Button" parent="."]
-offset_left = 843.0
-offset_top = 284.0
-offset_right = 1049.0
-offset_bottom = 347.0
+offset_left = 907.0
+offset_top = 305.0
+offset_right = 1113.0
+offset_bottom = 368.0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_2521n")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nr8cr")
 text = "PLAY"
 
 [node name="credits" type="Button" parent="."]
-offset_left = 848.0
-offset_top = 436.0
-offset_right = 1055.0
-offset_bottom = 499.0
+offset_left = 914.0
+offset_top = 468.0
+offset_right = 1121.0
+offset_bottom = 531.0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_h7v81")
 theme_override_styles/normal = SubResource("StyleBoxFlat_t7jdw")
