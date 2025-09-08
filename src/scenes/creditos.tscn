@@ -1,0 +1,173 @@
+[gd_scene load_steps=10 format=3 uid="uid://lvyagxqeqi46"]
+
+[ext_resource type="Texture2D" uid="uid://di1e76xv2ju6r" path="res://src/assets/sprite/creditos1.png" id="1_77333"]
+[ext_resource type="Script" uid="uid://dl5gxra7x82qh" path="res://src/scenes/creditos.gd" id="1_qkfak"]
+[ext_resource type="Texture2D" uid="uid://cckufw0litjch" path="res://src/assets/sprite/creditos2.png" id="2_qkfak"]
+[ext_resource type="Texture2D" uid="uid://cbqli5h31ulqg" path="res://src/assets/sprite/menudeljuego.png" id="4_mcjrs"]
+
+[sub_resource type="Animation" id="Animation_77333"]
+resource_name = "transicion"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_qkfak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mcjrs"]
+_data = {
+&"RESET": SubResource("Animation_qkfak"),
+&"transicion": SubResource("Animation_77333")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcjrs"]
+bg_color = Color(0.0666667, 0.6, 0.6, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v177d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Creditos" type="Node2D"]
+script = ExtResource("1_qkfak")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 1165.0
+offset_bottom = 665.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(609, 305)
+scale = Vector2(0.938331, 0.953379)
+texture = ExtResource("1_77333")
+region_enabled = true
+region_rect = Rect2(216.433, 0, 1275.34, 759.709)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(565, 329)
+scale = Vector2(0.456937, 0.396825)
+texture = ExtResource("2_qkfak")
+region_enabled = true
+region_rect = Rect2(238.91, 476.357, 1283.84, 1638)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(964, 580)
+texture = ExtResource("4_mcjrs")
+region_enabled = true
+region_rect = Rect2(1257, 636, 330, 103)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mcjrs")
+}
+
+[node name="menu" type="Button" parent="."]
+visible = false
+offset_left = 813.0
+offset_top = 537.0
+offset_right = 1110.0
+offset_bottom = 618.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_mcjrs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v177d")
+text = "MENU"
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

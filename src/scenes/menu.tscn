@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://p78mnovcvldw"]
+
+[ext_resource type="Texture2D" uid="uid://cbqli5h31ulqg" path="res://src/assets/sprite/menudeljuego.png" id="1_2521n"]
+[ext_resource type="Script" uid="uid://df3oy4meqbh83" path="res://src/scritps/menu.gd" id="1_h7v81"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2521n"]
+bg_color = Color(0.380392, 0.784314, 0.929412, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr8cr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7v81"]
+bg_color = Color(0.381665, 0.78494, 0.93114, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7jdw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_h7v81")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.5, 327.5)
+scale = Vector2(0.679105, 0.700617)
+texture = ExtResource("1_2521n")
+
+[node name="start" type="Button" parent="."]
+offset_left = 843.0
+offset_top = 284.0
+offset_right = 1049.0
+offset_bottom = 347.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_2521n")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nr8cr")
+text = "PLAY"
+
+[node name="credits" type="Button" parent="."]
+offset_left = 848.0
+offset_top = 436.0
+offset_right = 1055.0
+offset_bottom = 499.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_h7v81")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t7jdw")
+text = "CREDITS"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]

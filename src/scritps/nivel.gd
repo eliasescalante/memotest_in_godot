@@ -1,0 +1,104 @@
+extends Node2D
+
+@onready var contenedor = $CartaContainer
+var cartas_seleccionadas : Array = []
+var valores_disponibles = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"] # 9 valores = 18 cartas
+var bloqueando_input : bool = false
+
+func _ready():
+	iniciar_juego()
+
+func iniciar_juego():
+	var baraja = generar_baraja()
+	baraja.shuffle()
+	colocar_cartas(baraja)
+
+func generar_baraja() -> Array:
+	var baraja = []
+	
+	for valor in valores_disponibles:
+		baraja.append(valor)
+		baraja.append(valor)  # Agregamos el par
+		
+	#while baraja.size() < 36:
+	#	var valor_extra = valores_disponibles[randi() % valores_disponibles.size()]
+	#	baraja.append(valor_extra)
+	#	baraja.append(valor_extra)
+	var extras = 36 - baraja.size()
+	for i in range(int(extras / 2)):
+		var valor_extra = valores_disponibles[i % valores_disponibles.size()]
+		baraja.append(valor_extra)
+		baraja.append(valor_extra)
+		
+	baraja.resize(36)  # Por si se pasó de 36
+	return baraja
+
+func colocar_cartas(baraja: Array):
+	var filas = 4
+	var columnas = 9
+	var indice = 0
+	for y in range(filas):
+		for x in range(columnas):
+			var carta = preload("res://src/scenes/carta.tscn").instantiate()
+			carta.valor = baraja[indice]
+			carta.connect("carta_seleccionada", Callable(self, "_on_carta_seleccionada"))
+			carta.position = Vector2(x * 100, y * 150)  # Ajusta según tamaño de carta
+			contenedor.add_child(carta)
+			
+			carta.volteada = true
+			carta.sprite.play(carta.valor)
+			
+			indice += 1
+			print("Baraja mezclada: ", baraja)
+
+	get_tree().create_timer(1.0).connect("timeout", Callable(self, "_ocultar_todas"))
+
+func _on_carta_seleccionada(carta):
+	
+	if bloqueando_input:
+		return
+		
+	if carta in cartas_seleccionadas:
+		return
+	
+	cartas_seleccionadas.append(carta)
+	
+	if cartas_seleccionadas.size() == 2:
+		bloqueando_input = true
+		for c in cartas_seleccionadas:
+			c.set_input_enabled(false)
+		get_tree().create_timer(1.0).connect("timeout", Callable(self, "_comprobar_pareja"))
+
+func _comprobar_pareja():
+	var carta1 = cartas_seleccionadas[0]
+	var carta2 = cartas_seleccionadas[1]
+
+	if carta1.valor == carta2.valor:
+		carta1.ocultar()
+		carta2.ocultar()
+	else:
+		carta1.volteada = false
+		carta1.sprite.play("reverso")
+		carta2.volteada = false
+		carta2.sprite.play("reverso")
+	
+	cartas_seleccionadas.clear()
+	
+	for c in contenedor.get_children():
+		if c.visible:
+			c.set_input_enabled(true)
+	
+	bloqueando_input = false
+	comprobar_fin_juego()
+
+func comprobar_fin_juego():
+	var cartas_visibles = contenedor.get_children().filter(func(c): return c.visible)
+	if cartas_visibles.is_empty():
+		print("🎉 ¡Ganaste!")
+		get_tree().change_scene_to_file("res://src/scenes/creditos.tscn")
+
+func _ocultar_todas():
+	for carta in contenedor.get_children():
+		carta.volteada = false
+		carta.sprite.play("reverso")
+		carta.set_input_enabled(true)
