@@ -1,9 +1,16 @@
 extends Node2D
 
 @onready var animacion = $AnimationPlayer
+var menu_audio = AudioManager.get_node("MenuYCreditos")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animacion.play("transicion")
+	menu_audio.play()
+	# Reproducir música de menú en loop
+	
+
 	
 	pass # Replace with function body.
 

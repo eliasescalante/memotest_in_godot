@@ -1,3 +1,67 @@
-[gd_scene format=3 uid="uid://0vqfp46j0fvh"]
+[gd_scene load_steps=7 format=3 uid="uid://0vqfp46j0fvh"]
+
+[ext_resource type="Script" uid="uid://csiinpn32qug3" path="res://src/scritps/winolose.gd" id="1_3bcmw"]
+[ext_resource type="Texture2D" uid="uid://djh0ldg58p0cu" path="res://src/assets/sprite/img31082025_132.png" id="1_03s1r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3bcmw"]
+font_size = 93
+font_color = Color(0.00566115, 0.00566115, 0.00566115, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ic5rt"]
+font_size = 70
+font_color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bcmw"]
+bg_color = Color(0.6, 0.231373, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic5rt"]
+bg_color = Color(0.6, 0.160784, 0.6, 1)
 
 [node name="Winolose" type="Node2D"]
+script = ExtResource("1_3bcmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(626.627, 350.999)
+rotation = -1.57081
+scale = Vector2(0.664786, 0.683023)
+texture = ExtResource("1_03s1r")
+region_enabled = true
+region_rect = Rect2(0, 0, 1220.03, 1870)
+
+[node name="TIME" type="Label" parent="."]
+offset_left = 469.0
+offset_top = 165.0
+offset_right = 858.0
+offset_bottom = 303.0
+text = "Tiempo"
+label_settings = SubResource("LabelSettings_3bcmw")
+
+[node name="texto" type="Label" parent="."]
+offset_left = 170.0
+offset_top = 188.0
+offset_right = 372.0
+offset_bottom = 284.0
+text = "TIME: "
+label_settings = SubResource("LabelSettings_ic5rt")
+
+[node name="PLAY" type="Button" parent="."]
+offset_left = 397.0
+offset_top = 404.0
+offset_right = 754.0
+offset_bottom = 495.0
+theme_override_colors/font_hover_color = Color(0.807843, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_3bcmw")
+text = "PLAY AGAIN"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 405.0
+offset_top = 514.0
+offset_right = 750.0
+offset_bottom = 605.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ic5rt")
+text = "QUIT"
+
+[connection signal="pressed" from="PLAY" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

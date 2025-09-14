@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dkpi067t3mdwk" path="res://src/assets/cartas/14.png" id="7_06wck"]
 [ext_resource type="Texture2D" uid="uid://dp6j1qwx8xv1r" path="res://src/assets/cartas/15.png" id="8_n1lkn"]
 [ext_resource type="Texture2D" uid="uid://copp7dvrahlpr" path="res://src/assets/cartas/16.png" id="9_xnkrs"]
-[ext_resource type="Texture2D" uid="uid://bloh28tmhrrdy" path="res://src/assets/sprite/carta_placeholder_2.png" id="10_sbyd1"]
-[ext_resource type="Texture2D" uid="uid://2lvvbn8fkwef" path="res://src/assets/sprite/carta_placeholder_1.png" id="11_uoxir"]
+[ext_resource type="Texture2D" uid="uid://djcmnjpo8eulw" path="res://src/assets/cartas/carta_nueva_1.png" id="10_ds7cd"]
+[ext_resource type="Texture2D" uid="uid://dt4ut0cel7r17" path="res://src/assets/cartas/carta_nueva_2.png" id="11_srvv1"]
 [ext_resource type="Texture2D" uid="uid://cypnpk055lvem" path="res://src/assets/cartas/2.png" id="12_qi88p"]
 [ext_resource type="Texture2D" uid="uid://c07qagscm6etv" path="res://src/assets/cartas/3.png" id="13_5tayq"]
 [ext_resource type="Texture2D" uid="uid://dbdhudgm6s44l" path="res://src/assets/cartas/4.png" id="14_pw2vu"]
@@ -53,13 +53,13 @@ region = Rect2(0, 0, 454, 509)
 atlas = ExtResource("9_xnkrs")
 region = Rect2(0, 0, 453, 507)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ds7cd"]
-atlas = ExtResource("10_sbyd1")
-region = Rect2(0, 0, 165, 238)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbts6"]
+atlas = ExtResource("10_ds7cd")
+region = Rect2(0, 0, 454, 507)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_srvv1"]
-atlas = ExtResource("11_uoxir")
-region = Rect2(0, 0, 261, 421)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibu7s"]
+atlas = ExtResource("11_srvv1")
+region = Rect2(0, 0, 453, 509)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_22i1q"]
 atlas = ExtResource("12_qi88p")
@@ -165,7 +165,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ds7cd")
+"texture": SubResource("AtlasTexture_gbts6")
 }],
 "loop": true,
 "name": &"17",
@@ -173,7 +173,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_srvv1")
+"texture": SubResource("AtlasTexture_ibu7s")
 }],
 "loop": true,
 "name": &"18",
@@ -262,7 +262,7 @@ script = ExtResource("1_qcmrd")
 position = Vector2(-1, 1)
 scale = Vector2(0.0971488, 0.0804497)
 sprite_frames = SubResource("SpriteFrames_fl7ug")
-animation = &"reverso"
+animation = &"18"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

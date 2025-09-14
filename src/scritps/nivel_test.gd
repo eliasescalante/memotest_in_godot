@@ -7,6 +7,14 @@ var bloqueando_input : bool = false
 
 func _ready():
 	iniciar_juego()
+	GameState.iniciar_tiempo()
+	AudioManager.get_node("Nivel").play()
+	
+	
+func _process(delta: float) -> void:
+	GameState.actualizar_tiempo(delta)
+	if not AudioManager.get_node("Nivel").is_playing():
+		AudioManager.get_node("Nivel").play()
 
 func iniciar_juego():
 	var baraja = generar_baraja()
@@ -61,7 +69,7 @@ func colocar_cartas(baraja: Array):
 			indice += 1
 			print("Baraja mezclada: ", baraja)
 
-	get_tree().create_timer(1.0).connect("timeout", Callable(self, "_ocultar_todas"))
+	get_tree().create_timer(3.0).connect("timeout", Callable(self, "_ocultar_todas"))
 
 func _on_carta_seleccionada(carta):
 	
@@ -86,11 +94,13 @@ func _comprobar_pareja():
 	if carta1.valor == carta2.valor:
 		carta1.ocultar()
 		carta2.ocultar()
+		AudioManager.get_node("Yay").play()
 	else:
 		carta1.volteada = false
 		carta1.sprite.play("reverso")
 		carta2.volteada = false
 		carta2.sprite.play("reverso")
+		AudioManager.get_node("No").play()
 	
 	cartas_seleccionadas.clear()
 	

@@ -8,6 +8,11 @@ var bloqueando_input : bool = false
 func _ready():
 	iniciar_juego()
 
+func _process(delta: float) -> void:
+	GameState.actualizar_tiempo(delta)
+	if not AudioManager.get_node("Nivel").is_playing():
+		AudioManager.get_node("Nivel").play()
+	
 func iniciar_juego():
 	var baraja = generar_baraja()
 	baraja.shuffle()
@@ -61,7 +66,7 @@ func colocar_cartas(baraja: Array):
 			indice += 1
 			print("Baraja mezclada: ", baraja)
 
-	get_tree().create_timer(3.0).connect("timeout", Callable(self, "_ocultar_todas"))
+	get_tree().create_timer(1.0).connect("timeout", Callable(self, "_ocultar_todas"))
 
 func _on_carta_seleccionada(carta):
 	
@@ -77,7 +82,7 @@ func _on_carta_seleccionada(carta):
 		bloqueando_input = true
 		for c in cartas_seleccionadas:
 			c.set_input_enabled(false)
-		get_tree().create_timer(1.0).connect("timeout", Callable(self, "_comprobar_pareja"))
+		get_tree().create_timer(3.0).connect("timeout", Callable(self, "_comprobar_pareja"))
 
 func _comprobar_pareja():
 	var carta1 = cartas_seleccionadas[0]
@@ -86,11 +91,13 @@ func _comprobar_pareja():
 	if carta1.valor == carta2.valor:
 		carta1.ocultar()
 		carta2.ocultar()
+		AudioManager.get_node("Yay").play()
 	else:
 		carta1.volteada = false
 		carta1.sprite.play("reverso")
 		carta2.volteada = false
 		carta2.sprite.play("reverso")
+		AudioManager.get_node("No").play()
 	
 	cartas_seleccionadas.clear()
 	
@@ -105,7 +112,7 @@ func comprobar_fin_juego():
 	var cartas_visibles = contenedor.get_children().filter(func(c): return c.visible)
 	if cartas_visibles.is_empty():
 		print("🎉 ¡Ganaste!")
-		get_tree().change_scene_to_file("res://src/scenes/creditos.tscn")
+		get_tree().change_scene_to_file("res://src/scenes/winolose.tscn")
 
 func _ocultar_todas():
 	for carta in contenedor.get_children():

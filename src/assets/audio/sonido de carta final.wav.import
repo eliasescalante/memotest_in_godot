@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dn6j1u5py7flu"
+path="res://.godot/imported/sonido de carta final.wav-a1b0d1fe83f684b4a1cdedee0cfab38f.sample"
+
+[deps]
+
+source_file="res://src/assets/audio/sonido de carta final.wav"
+dest_files=["res://.godot/imported/sonido de carta final.wav-a1b0d1fe83f684b4a1cdedee0cfab38f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

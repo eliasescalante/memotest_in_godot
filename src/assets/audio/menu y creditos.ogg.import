@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck7qm3sp07lq0"
+path="res://.godot/imported/menu y creditos.ogg-bd18a57704f49252eb851d85c4fda6ba.sample"
+
+[deps]
+
+source_file="res://src/assets/audio/menu y creditos.ogg"
+dest_files=["res://.godot/imported/menu y creditos.ogg-bd18a57704f49252eb851d85c4fda6ba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

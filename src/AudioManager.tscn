@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://cnb7ogkw4jhr0"]
+[gd_scene load_steps=7 format=3 uid="uid://cnb7ogkw4jhr0"]
+
+[ext_resource type="AudioStream" uid="uid://ck7qm3sp07lq0" path="res://src/assets/audio/menu y creditos.ogg" id="1_ht8ya"]
+[ext_resource type="AudioStream" uid="uid://dnayprjdjojvf" path="res://src/assets/audio/nivel.wav" id="2_ebjbm"]
+[ext_resource type="AudioStream" uid="uid://crku6mbdxnu57" path="res://src/assets/audio/no.wav" id="3_qk6u0"]
+[ext_resource type="AudioStream" uid="uid://dn6j1u5py7flu" path="res://src/assets/audio/sonido de carta final.wav" id="4_vjtnb"]
+[ext_resource type="AudioStream" uid="uid://dleyru40ys8a4" path="res://src/assets/audio/sonido de presenta.wav" id="5_21k7m"]
+[ext_resource type="AudioStream" uid="uid://ch13mmspf6qa1" path="res://src/assets/audio/yay.wav" id="5_ebjbm"]
 
 [node name="AudioManager" type="Node2D"]
+
+[node name="MenuYCreditos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ht8ya")
+volume_db = -10.853
+
+[node name="Nivel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ebjbm")
+volume_db = -13.117
+
+[node name="No" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qk6u0")
+
+[node name="SonidoDeCartaFinal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vjtnb")
+
+[node name="Yay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ebjbm")
+
+[node name="SonidoDePresenta" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_21k7m")
