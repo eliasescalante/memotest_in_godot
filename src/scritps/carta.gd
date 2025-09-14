@@ -9,7 +9,7 @@ signal carta_seleccionada(carta)
 var volteada = false
 
 func _ready():
-	sprite.scale = Vector2(0.2, 0.2)
+	sprite.scale = Vector2(0.3, 0.3)
 	input_pickable = true
 	
 

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://crhavx8ung3pr"]
+
+[ext_resource type="Script" uid="uid://cvoy1bb8gubtt" path="res://src/scritps/nivel_test.gd" id="1_16kyu"]
+[ext_resource type="Texture2D" uid="uid://m3wnx3u7v4f0" path="res://src/assets/sprite/img31082025_130.png" id="2_bg0gx"]
+
+[node name="NivelTest" type="Node2D"]
+script = ExtResource("1_16kyu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -164.0
+offset_top = -46.0
+offset_right = 1410.0
+offset_bottom = 678.0
+mouse_filter = 2
+color = Color(0.0295066, 0.0295066, 0.0295066, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.298039)
+position = Vector2(618.089, 320.174)
+rotation = 0.000991458
+scale = Vector2(0.653237, 0.616595)
+texture = ExtResource("2_bg0gx")
+
+[node name="CartaContainer" type="Node2D" parent="."]
+position = Vector2(262, 118)
+
+[node name="Timer" type="Timer" parent="."]

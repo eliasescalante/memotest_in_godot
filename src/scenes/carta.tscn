@@ -259,13 +259,13 @@ size = Vector2(66, 89)
 script = ExtResource("1_qcmrd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-9.53674e-07, -2.86102e-06)
-scale = Vector2(0.104112, 0.105665)
+position = Vector2(-1, 1)
+scale = Vector2(0.0971488, 0.0804497)
 sprite_frames = SubResource("SpriteFrames_fl7ug")
-animation = &"5"
+animation = &"reverso"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -0.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_22i1q")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
